@@ -1,15 +1,16 @@
 name: Deploy to GitHub Pages
 
-on: 
+on:
   push:
     branches:
-      - master 
+      - master # or main, depending on your default branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -29,4 +30,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out # Next.js static export output directory
+          publish_dir: ./out
