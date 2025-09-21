@@ -7,6 +7,14 @@ import Image from "next/image";
 import { motion } from 'framer-motion';
 import { useEffect, useState } from "react";
 import Hero from "@/src/components/Hero";
+import CodingProfiles from "@/src/components/CodingProfiles";
+import ProjectsSection from "@/src/components/ProjectsSection";
+import ContactMe from "@/src/components/ContactMe";
+import InternshipSection from "@/src/components/InternshipSection";
+import ResumeSection from "@/src/components/ResumeSection";
+import SkillsSection from "@/src/components/SkillsSection";
+import GoalsSection from "@/src/components/GoalsSection";
+import { getRandomImageUrl } from "@/src/utils/imageUtils";
 
 async function getCertificates() {
   const query = `*[_type == "certificate"]`;
@@ -14,11 +22,24 @@ async function getCertificates() {
   return data;
 }
 
+const allBackgroundImages = [
+  '/certificates-bg.jpg',
+  '/coding-bg.jpg',
+  '/internships-bg.jpg',
+  '/projects-bg.jpg',
+  '/resume-bg.jpg',
+  '/skills-bg.jpg',
+  '/goals-bg.jpg',
+  '/contact-bg.jpg',
+];
+
 export default function Home() {
   const [certificates, setCertificates] = useState<Certificate[]>([]);
+  const [certificatesBackgroundImage, setCertificatesBackgroundImage] = useState<string>('');
 
   useEffect(() => {
     getCertificates().then(data => setCertificates(data));
+    setCertificatesBackgroundImage(getRandomImageUrl(allBackgroundImages));
   }, []);
 
   const cardVariants = {
@@ -28,8 +49,12 @@ export default function Home() {
 
   return (
     <>
-      <Hero profileImageSrc="/profile.png" />
-      <main className="flex min-h-screen flex-col items-center py-16 px-4 bg-gray-950 text-white">
+      <section id="hero">
+        <Hero imageUrls={allBackgroundImages} />
+      </section>
+      <main id="certificates" className="flex min-h-screen flex-col items-center py-16 px-4 bg-gray-950 text-white"
+        style={{ backgroundImage: certificatesBackgroundImage ? `url(${certificatesBackgroundImage})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+      >
         <h1 className="text-5xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">My Certificates</h1>
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -61,7 +86,27 @@ export default function Home() {
           ))}
         </motion.div>
       </main>
+      <section id="coding-profiles">
+        <CodingProfiles imageUrls={allBackgroundImages} />
+      </section>
+      <section id="projects">
+        <ProjectsSection imageUrls={allBackgroundImages} />
+      </section>
+      <section id="internships">
+        <InternshipSection imageUrls={allBackgroundImages} />
+      </section>
+      <section id="resume">
+        <ResumeSection imageUrls={allBackgroundImages} />
+      </section>
+      <section id="skills">
+        <SkillsSection imageUrls={allBackgroundImages} />
+      </section>
+      <section id="goals">
+        <GoalsSection imageUrls={allBackgroundImages} />
+      </section>
+      <section id="contact">
+        <ContactMe imageSrc="/contact-bg.jpg" />
+      </section>
     </>
   );
 }
-
