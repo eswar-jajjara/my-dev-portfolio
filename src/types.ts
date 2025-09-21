@@ -62,6 +62,7 @@ export interface Resume {
       _type: string;
     };
   };
+  fileUrl?: string;
 }
 
 export interface Skill {
