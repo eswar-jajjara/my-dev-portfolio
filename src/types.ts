@@ -17,6 +17,7 @@ export interface CodingProfile {
   platform: string;
   url: string;
   username?: string;
+  category: string;
 }
 
 export interface ContactInfo {
