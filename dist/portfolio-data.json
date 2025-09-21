@@ -1,0 +1,35 @@
+{
+  "title": "Eswar Vardan | AI & Software Developer",
+  "description": "A real-time personal portfolio showcasing my projects, system architectures, certifications, and achievements. Built for recruiters, collaborators, and tech enthusiasts.",
+  "projects": [
+    {
+      "title": "AI Resume Screener",
+      "description": "A smart screening tool using Java + PostgreSQL"
+    },
+    {
+      "title": "Employee Attendance System",
+      "description": "Java EE + JSP with TDD"
+    },
+    {
+      "title": "PROARENA Gaming Platform",
+      "description": "Spring Boot + MySQL (In Progress)"
+    }
+  ],
+  "architectures": [
+    "Java MVC Architecture",
+    "PostgreSQL ER Diagrams",
+    "Spring Boot REST APIs",
+    "Clean Code & TDD Patterns"
+  ],
+  "certificates": [
+    "Oracle Certified Java SE 11 Developer",
+    "AWS Cloud Practitioner",
+    "IBM Linux Admin",
+    "Cisco Networking Essentials",
+    "Coursera: Edge AI Architectures"
+  ],
+  "resume": "https://eswar-portfolio.com/resume.pdf",
+  "linkedin": "https://linkedin.com/in/eswarvardan",
+  "github": "https://github.com/eswarvardan",
+  "email": "eswar@example.com"
+}
